@@ -9,12 +9,57 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        UIUpdateStatus(busy: false)
     }
+    @IBAction func loginButton(_ sender: Any) {
+       
 
 
+        UIUpdateStatus(busy: true)
+        
+        if textFieldIsEmpty() {
+            alert(title: "Worning!", message: "email and password fields should not be empty!")
+            UIUpdateStatus(busy: false)
+            return
+        }
+ 
+        Client.login(email: email.text ?? "" , password: password.text ?? "") { (easyError) in
+            //            error handling
+            if let easyError = easyError {
+                self.alert(title:"Error:" ,message: easyError.message)
+            } else {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "login", sender: nil)
+                    self.UIUpdateStatus(busy: false)
+                }
+            }
+        }
+    }
+    
+    func UIUpdateStatus (busy: Bool){
+        email.isUserInteractionEnabled = !busy
+        password.isUserInteractionEnabled = !busy
+        loginButton.isEnabled = !busy
+        if busy {
+            loginButton.setTitle("please wait!", for: .normal)
+        } else {
+            loginButton.setTitle("Login", for: .normal)
+        }
+    }
+    
+    func textFieldIsEmpty ()-> Bool{
+        if email.text == "" || password.text == ""{
+            return true
+        }else {return false}
+        
+    }
+    
+    
 }
 
