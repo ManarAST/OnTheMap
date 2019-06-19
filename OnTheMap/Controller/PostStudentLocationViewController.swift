@@ -11,8 +11,7 @@ import MapKit
 class PostStudentLocationViewController: UIViewController, MKMapViewDelegate {
 
     var locationCoordinate: CLLocationCoordinate2D!
-    var firstName: String!
-    var lastName: String!
+   
     var locationString: String!
     var mediaURL: String!
    
@@ -36,7 +35,7 @@ class PostStudentLocationViewController: UIViewController, MKMapViewDelegate {
     
 
     @IBAction func ConfirmButton(_ sender: Any) {
-        Client.postStudentLocation(firstName: firstName, lastName: lastName, locationName: locationString, mediaURL: mediaURL , locationCoordinate: locationCoordinate) { (error) in
+        Client.postStudentLocation( locationName: locationString, mediaURL: mediaURL , locationCoordinate: locationCoordinate) { (error) in
             if let error = error {
                 self.alert(title: "ERROR!", message: error.message)
                 
@@ -50,8 +49,8 @@ class PostStudentLocationViewController: UIViewController, MKMapViewDelegate {
         }
     }
     func Annotation (){
-        annotation.coordinate = locationCoordinate!
-        annotation.title = firstName + " " + lastName
+        annotation.coordinate = locationCoordinate 
+        annotation.title = "Jasmin Ahmad"
         annotation.subtitle = mediaURL
         
         map.setRegion(pinRegion, animated: true)

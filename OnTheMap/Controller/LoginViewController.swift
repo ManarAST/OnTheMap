@@ -16,10 +16,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         UIUpdateStatus(busy: false)
+        
+       
     }
     @IBAction func loginButton(_ sender: Any) {
        
-
+      email.text = "manar.altowaim@gmail.com"
+        password.text = "Mjuhbvfrdx@1"
 
         UIUpdateStatus(busy: true)
         
@@ -29,7 +32,7 @@ class LoginViewController: UIViewController {
             return
         }
  
-        Client.login(email: email.text ?? "" , password: password.text ?? "") { (easyError) in
+        Client.Login(email: email.text ?? "" , password: password.text ?? "") { (easyError) in
             //            error handling
             if let easyError = easyError {
                 self.alert(title:"Error:" ,message: easyError.message)
@@ -60,6 +63,9 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
 }
 

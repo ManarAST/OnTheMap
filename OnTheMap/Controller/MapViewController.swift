@@ -21,6 +21,9 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         
         if StudentsLocations == nil {
            reloadButton(self)
+            if StudentsLocations == nil {
+                print("StudentsLocations is stil nil here")
+            }
         }else {
             updateMap() 
         }
@@ -61,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
             
             
         }
-        print("Annotation number: \(Annotations.count)")
+//        print("Annotation number: \(Annotations.count)")
        map.addAnnotations(Annotations)
         
         

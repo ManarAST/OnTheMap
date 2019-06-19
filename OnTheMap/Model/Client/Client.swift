@@ -11,19 +11,26 @@ import MapKit
 
 class Client {
     
+   
+    
     //    MARK: Endpoins
     enum Endpoints {
+        
+       
+        
         static let base = "https://onthemap-api.udacity.com/v1"
 
         case session   //       includes posting and deletiong a session
         case getStudensLocations
         case postStudentLocation
+       
         
         var stringUrl: String{
             switch self {
             case .session: return Endpoints.base + "/session"
-            case .getStudensLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt"
+            case .getStudensLocations: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
             case .postStudentLocation: return Endpoints.base + "/StudentLocation"
+           
                 
                 
             }
@@ -36,7 +43,7 @@ class Client {
     
     //    MARK: POST requests:
     //    MARK: LOGIN
-    class func login (email: String, password: String, completion: @escaping (EasyError?)->Void){
+    class func Login (email: String, password: String, completion: @escaping (EasyError?)->Void){
         
 //        making the request
         var request = URLRequest(url: Endpoints.session.url)
@@ -67,19 +74,18 @@ class Client {
             if let resultError = result["error"] as? String {
                 completion(EasyError(error: nil, customError: resultError))
             }
-            
-            completion(nil)
+          completion(nil)
         }
         task.resume()
     }
     
     //    MARK: postStudentLocation
-    class func postStudentLocation(firstName:String, lastName: String, locationName: String, mediaURL: String,locationCoordinate: CLLocationCoordinate2D, completion: @escaping (EasyError?)-> Void){
+    class func postStudentLocation( locationName: String, mediaURL: String,locationCoordinate: CLLocationCoordinate2D, completion: @escaping (EasyError?)-> Void){
         var request = URLRequest(url: Endpoints.postStudentLocation.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let body = postNewLocation(firstName: firstName, lastName: lastName, latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude, mapString: locationName, mediaURL: mediaURL)
+        let body = postNewLocation(firstName: "Jasmin", lastName: "Ahmad", latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude, mapString: locationName, mediaURL: mediaURL)
         
         do {
             request.httpBody = try JSONEncoder().encode(body)
@@ -114,15 +120,20 @@ class Client {
             }
             let resultsData = try! JSONSerialization.data(withJSONObject: result, options: [])
             let studentsLocations = try! JSONDecoder().decode([StudentsLocation].self, from: resultsData)
-            Global.shard.StudentsLocations  = studentsLocations
+            Global.shard.StudentsLocations = studentsLocations
+            completion(nil)
         }
         task.resume()
     }
     
     
+   
+    
+    
+    
     //    MARK: DELETE requests:
     //    MARK: LOGOUT
-    class func logout(completion: @escaping (EasyError?) -> Void){
+    class func Logout(completion: @escaping (EasyError?) -> Void){
         
         var request = URLRequest(url: Endpoints.session.url)
         request.httpMethod = "DELETE"

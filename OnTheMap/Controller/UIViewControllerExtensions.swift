@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     
     @IBAction func logoutButton (_ sender: UIBarButtonItem){
-        Client.logout { (easyError) in
+        Client.Logout { (easyError) in
             if easyError != nil {
                 print(easyError?.error as Any)
             } else {
@@ -44,8 +44,9 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
+            
         }
     }
-   
-
+    
+    
 }

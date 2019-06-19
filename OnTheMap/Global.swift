@@ -12,4 +12,5 @@ class Global {
     static var shard = Global()
     var StudentsLocations: [StudentsLocation]?
     var StudentHasLocation = false
+    var StudentsId: String = ""
 }

@@ -12,8 +12,7 @@ import CoreLocation
 class NewLocationViewController: UIViewController {
     
     
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
+ 
     @IBOutlet weak var locationString: UITextField!
     @IBOutlet weak var mediaURL: UITextField!
     @IBOutlet weak var SubmitButton: UIButton!
@@ -24,8 +23,6 @@ class NewLocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPost"{
             let controller = segue.destination as! PostStudentLocationViewController
-            controller.firstName = firstName.text
-            controller.lastName = lastName.text
             controller.locationString = locationString.text
             controller.locationCoordinate = locationCoordinate
             controller.mediaURL = mediaURL.text
@@ -47,7 +44,7 @@ class NewLocationViewController: UIViewController {
                 self.alert(title: "Error", message: "The city name is not valid! try another city name")
                 print(error!.localizedDescription)
                  self.UIInputStatus(busy: false)
-                
+                return
             }
             self.locationCoordinate = coordinate
             self.UIInputStatus(busy: false)
@@ -80,8 +77,7 @@ class NewLocationViewController: UIViewController {
     }
     
     func UIInputStatus (busy: Bool){
-        firstName.isUserInteractionEnabled = !busy
-        lastName.isUserInteractionEnabled = !busy
+    
         locationString.isUserInteractionEnabled = !busy
         mediaURL.isUserInteractionEnabled = !busy
         
@@ -91,6 +87,12 @@ class NewLocationViewController: UIViewController {
             SubmitButton.setTitle("Submit", for: .normal)
         }
     }
+    
+    //    MARK: Keyboard stuff
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+   
     
     
 }
