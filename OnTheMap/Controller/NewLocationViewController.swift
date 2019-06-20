@@ -29,6 +29,8 @@ class NewLocationViewController: UIViewController {
         }
     }
     
+  
+    
     @IBAction func SubmitButton(_ sender: Any) {
        
         
@@ -92,7 +94,8 @@ class NewLocationViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-   
+    
+    
     
     
 }

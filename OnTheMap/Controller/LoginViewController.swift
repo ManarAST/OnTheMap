@@ -21,8 +21,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginButton(_ sender: Any) {
        
-      email.text = "manar.altowaim@gmail.com"
-        password.text = "Mjuhbvfrdx@1"
+    
 
         UIUpdateStatus(busy: true)
         

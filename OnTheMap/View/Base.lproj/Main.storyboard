@@ -118,17 +118,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="u4I-2j-ypb">
-                                <rect key="frame" x="72" y="94" width="176" height="258"/>
+                                <rect key="frame" x="72" y="84" width="176" height="238"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BluePin" translatesAutoresizingMaskIntoConstraints="NO" id="Kh3-Hp-FdS">
-                                        <rect key="frame" x="38" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="38" y="0.0" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Mdz-lx-lLe"/>
-                                            <constraint firstAttribute="height" constant="70" id="lTJ-WP-4IN"/>
+                                            <constraint firstAttribute="height" constant="50" id="lTJ-WP-4IN"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-Qk-ubs">
-                                        <rect key="frame" x="0.0" y="85" width="176" height="128"/>
+                                        <rect key="frame" x="0.0" y="65" width="176" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XP-n9-NcK">
                                                 <rect key="frame" x="58.5" y="0.0" width="59" height="20.5"/>
@@ -161,7 +161,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJA-4k-I66">
-                                        <rect key="frame" x="0.0" y="228" width="176" height="30"/>
+                                        <rect key="frame" x="0.0" y="208" width="176" height="30"/>
                                         <color key="backgroundColor" red="0.28158159669999999" green="0.7261468364" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +179,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="u4I-2j-ypb" firstAttribute="centerX" secondItem="8Ao-aY-RRa" secondAttribute="centerX" id="pYe-co-A6o"/>
-                            <constraint firstItem="u4I-2j-ypb" firstAttribute="top" secondItem="8Ao-aY-RRa" secondAttribute="top" constant="30" id="wBJ-vf-kMU"/>
+                            <constraint firstItem="u4I-2j-ypb" firstAttribute="top" secondItem="8Ao-aY-RRa" secondAttribute="top" constant="20" id="wBJ-vf-kMU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ao-aY-RRa"/>
                     </view>
@@ -206,7 +206,7 @@
             <objects>
                 <navigationController id="55z-RW-2bT" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uvz-Uv-oRe">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -271,7 +271,7 @@
                 <navigationController id="38e-Us-HvI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table" image="table" id="a2q-Lk-5Jq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fYx-NC-NOZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -355,7 +355,7 @@
                 <navigationController id="izu-ih-3u1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="c7V-Gc-5cC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6me-AM-xzF">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
